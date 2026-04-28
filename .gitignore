@@ -1,0 +1,9 @@
+# Binary
+*.exe
+
+# Index data
+index.gob
+
+# IDE
+.idea/
+.vscode/
