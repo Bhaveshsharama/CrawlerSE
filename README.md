@@ -20,7 +20,8 @@ Built with standard library tools (zero framework dependencies on the backend, e
 2. **Parser (`parser.go`)**: Cleans HTML elements to find meaningful layout nodes using AST walking.
 3. **Indexer & Ranker (`index.go`)**: Tokenizes the output, updates document frequencies (DF), stores inverted indexes, and saves the snapshot to disk as `index.gob` so subsequent runs can avoid re-crawling.
 4. **API (`api.go`)**: Exposes an HTTP endpoint (`/search?q=...&limit=X&offset=Y`) that accepts queries, computes dynamic BM25 scores across the index, and paginates results.
-5. **Frontend (`static/`)**: A clean UI to interface with the API.
+5. **Logger (`logger.go`)**: Telemetry component that intercepts incoming queries, compares them against the inverted index's document frequency map, and logs warnings for unseen terms (highlighting blind spots in the crawler's domain coverage).
+6. **Frontend (`static/`)**: A clean UI to interface with the API.
 
 ## Getting Started
 
